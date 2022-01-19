@@ -1,3 +1,31 @@
-<div *ngFor="let speaker of speakers">
-    {{ speaker.email }}
+<div class="speakers">
+    <mat-card *ngFor="let speaker of speakers" class="speakers__speaker">
+        <mat-card-header>
+            <div mat-card-avatar class="speakers__speaker--thumbnail">
+                <img [src]="speaker.picture.thumbnail" alt="Speaker thumbnail">
+            </div>
+
+            <mat-card-title>{{ speaker.name.title }} {{ speaker.name.first }} {{ speaker.name.last }}</mat-card-title>
+            <mat-card-subtitle>{{ speaker.email }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-divider inset></mat-divider>
+
+        <mat-card-content>
+            <ul class="content">
+                <li class="content__item">
+                    <span>Location</span>
+                    <span>{{ speaker.location.city }}, {{ speaker.location.country }}</span>
+                </li>
+                <li class="content__item">
+                    <span>Age</span>
+                    <span>{{ speaker.dob.age }}</span>
+                </li>
+            </ul>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-button color="primary">View</button>
+        </mat-card-actions>
+    </mat-card>
 </div>

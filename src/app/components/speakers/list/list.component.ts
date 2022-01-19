@@ -19,6 +19,7 @@ export class ListComponent implements OnInit {
   private loadSpeakers(): void {
     this.speakersService.getSpeakers().subscribe((speakerData: SpeakerData) => {
       this.speakers = speakerData.results;
+      console.log(this.speakers)
     })
   }
 

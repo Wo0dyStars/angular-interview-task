@@ -1,0 +1,39 @@
+.speakers {
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 400px);
+    grid-gap: 1rem;
+    justify-content: center;
+
+    &__speaker {
+        &--thumbnail {
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid white;
+            box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        .content {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+
+            &__item {
+                display: flex;
+                justify-content: space-between;
+
+                span:first-of-type {
+                    font-weight: 500;
+                }
+
+                span:last-of-type {
+                    color: rgba(0,0,0,.7);
+                }
+            }
+        }
+    }
+}
