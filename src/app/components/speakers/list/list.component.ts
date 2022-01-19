@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Speaker, SpeakerData } from 'src/app/models/speaker';
 import { SpeakersService } from 'src/app/services/speakers.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { SpeakersService } from 'src/app/services/speakers.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  public speakers: any;
+  public speakers: Speaker[] = [];
 
   constructor(private speakersService: SpeakersService) { }
 
@@ -16,9 +17,8 @@ export class ListComponent implements OnInit {
   }
 
   private loadSpeakers(): void {
-    this.speakersService.getSpeakers().subscribe((speakers) => {
-      this.speakers = speakers;
-      console.log(this.speakers)
+    this.speakersService.getSpeakers().subscribe((speakerData: SpeakerData) => {
+      this.speakers = speakerData.results;
     })
   }
 
