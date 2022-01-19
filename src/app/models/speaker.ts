@@ -75,6 +75,7 @@ export interface Speaker {
     phone: string;
     picture: Picture;
     registered: Registered;
+    mergedName?: string;
 }
 
 export interface SpeakerData {

@@ -9,7 +9,9 @@ import { SpeakersService } from 'src/app/services/speakers.service';
 })
 export class ListComponent implements OnInit {
   public speakers: Speaker[] = [];
-
+  public allSpeakers: Speaker[] = [];
+  public searchValue: any = "";
+  
   constructor(private speakersService: SpeakersService) { }
 
   ngOnInit(): void {
@@ -18,9 +20,18 @@ export class ListComponent implements OnInit {
 
   private loadSpeakers(): void {
     this.speakersService.getSpeakers().subscribe((speakerData: SpeakerData) => {
-      this.speakers = speakerData.results;
+      this.speakers = this.speakersService.getSpeakersWithMergedName(speakerData.results);
+      this.allSpeakers = this.speakers;
       console.log(this.speakers)
     })
   }
 
+  public filterSpeakers(): void {
+    this.speakers = this.speakersService.filterSpeakers(this.searchValue, this.allSpeakers);
+  }
+
+  public resetSearch(): void {
+    this.searchValue = "";
+    this.filterSpeakers();
+  }
 }
