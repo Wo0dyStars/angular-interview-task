@@ -2,6 +2,12 @@ mat-card-header {
     position: relative;
 }
 
+.toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
 .speakers {
     margin: 1rem 0;
     display: grid;
@@ -51,4 +57,22 @@ mat-card-header {
 
 mat-form-field {
     width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+.table-avatar {
+    display: flex;
+    align-items: center;
+    padding: .3rem;
+
+    img {
+        border-radius: 50%;
+    }
+}
+
+.padding-around {
+    padding: 1rem;
 }

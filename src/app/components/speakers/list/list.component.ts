@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
-import { initialPage, pageSizeOptions } from 'src/app/models/page';
+import { initialPage, pageSizeOptions, ViewTypes, viewTypes } from 'src/app/models/page';
 import { Speaker, SpeakerData } from 'src/app/models/speaker';
 import { DialogService } from 'src/app/services/dialog.service';
 import { PageService } from 'src/app/services/page.service';
@@ -14,12 +14,15 @@ import { SpeakerComponent } from 'src/app/shared/dialog/speaker/speaker.componen
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
+  public viewTypes = viewTypes;
   public speakers: Speaker[] = [];
   public allSpeakers: Speaker[] = [];
   public searchValue: any = "";
   public page: PageEvent = initialPage;
   public pageSizeOptions = pageSizeOptions;
   public showFirstLastButtons = true;
+  public view: ViewTypes = viewTypes.TABLE;
+  public displayedColumns: string[] = ['avatar', 'mergedName', 'email', 'city', 'country', 'action'];
   
   private initialLoad: boolean = false;
   private $page: Subscription;

@@ -6,4 +6,14 @@ export const initialPage: PageEvent = {
     length: 200
 }
 
+export const enum ViewTypes {
+    TABLE =  'table',
+    CARD = 'card'
+}
+
+export const viewTypes = {
+    TABLE: ViewTypes.TABLE,
+    CARD: ViewTypes.CARD
+}
+
 export const pageSizeOptions = [5, 10, 20, 25];
