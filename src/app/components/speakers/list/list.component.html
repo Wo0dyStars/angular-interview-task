@@ -16,6 +16,8 @@
 
             <mat-card-title>{{ speaker.mergedName }}</mat-card-title>
             <mat-card-subtitle>{{ speaker.email }}</mat-card-subtitle>
+
+            <div class="speakers__speaker--nationality">{{ speaker.nat }}</div>
         </mat-card-header>
 
         <mat-divider inset></mat-divider>
@@ -34,7 +36,7 @@
         </mat-card-content>
 
         <mat-card-actions>
-            <button mat-button color="primary">View</button>
+            <button mat-button color="primary" (click)="viewSpeaker(speaker)">View</button>
         </mat-card-actions>
     </mat-card>
 </div>

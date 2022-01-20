@@ -1,3 +1,7 @@
+mat-card-header {
+    position: relative;
+}
+
 .speakers {
     margin: 1rem 0;
     display: grid;
@@ -15,6 +19,13 @@
             img {
                 max-width: 100%;
             }
+        }
+
+        &--nationality {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: rgba(0,0,0,.5);
         }
 
         .content {

@@ -21,6 +21,8 @@ export const routes: Routes = [
     FormsModule,
     MaterialModule,
     RouterModule.forChild(routes)
+  ],
+  exports: [
   ]
 })
 export class SpeakersModule { }

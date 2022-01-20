@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Speaker, SpeakerData } from 'src/app/models/speaker';
+import { DialogService } from 'src/app/services/dialog.service';
 import { SpeakersService } from 'src/app/services/speakers.service';
+import { SpeakerComponent } from 'src/app/shared/dialog/speaker/speaker.component';
 
 @Component({
   selector: 'app-list',
@@ -12,7 +14,7 @@ export class ListComponent implements OnInit {
   public allSpeakers: Speaker[] = [];
   public searchValue: any = "";
   
-  constructor(private speakersService: SpeakersService) { }
+  constructor(private speakersService: SpeakersService, private dialogService: DialogService) { }
 
   ngOnInit(): void {
     this.loadSpeakers();
@@ -33,5 +35,9 @@ export class ListComponent implements OnInit {
   public resetSearch(): void {
     this.searchValue = "";
     this.filterSpeakers();
+  }
+
+  public viewSpeaker(speaker: Speaker): void {
+    this.dialogService.panel(SpeakerComponent, speaker, speaker.mergedName);
   }
 }

@@ -7,10 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './shared/material/material.module';
 import { FormsModule } from '@angular/forms';
+import { SpeakerComponent } from './shared/dialog/speaker/speaker.component';
+import { ItemComponent } from './components/speakers/list/item/item.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SpeakerComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

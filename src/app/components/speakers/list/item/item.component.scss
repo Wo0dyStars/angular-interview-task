@@ -1,0 +1,49 @@
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+
+    &__image {
+
+        img {
+            max-width: 100%;
+            border-radius: 50%;
+        }
+    }
+
+    &__info {
+        margin: 1rem 0;
+        text-align: center;
+
+        &--name {
+            font-weight: 500;
+        }
+
+        &--username {
+            color: rgba(0,0,0,.5);
+        }
+    }
+
+    &__buttons {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        &--button {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+p {
+    color: rgba(0,0,0,.5);
+}

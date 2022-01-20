@@ -1,0 +1,59 @@
+<div class="top">
+    <div class="header">
+        <div class="header__image">
+            <img [src]="speaker.picture.large" [alt]="speaker.mergedName">
+        </div>
+    
+        <div class="header__info">
+            <div class="header__info--name">{{ speaker.mergedName }}</div>
+            <div class="header__info--username">{{ speaker.login.username }}</div>
+        </div>
+    </div>
+
+    <div class="header__buttons">
+        <div class="header__buttons--button">
+            <a [href]="'mailto:' + speaker.email">
+                <button mat-mini-fab color="primary">
+                    <mat-icon>email</mat-icon>
+                </button>
+            </a>
+        </div>
+        <div class="header__buttons--button">
+            <a [href]="'tel:' + speaker.phone">
+                <button mat-mini-fab color="basic">
+                    <mat-icon>phone_iphone</mat-icon>
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<mat-divider></mat-divider>
+
+<mat-list>
+    <h3 matSubheader>Contact</h3>
+
+    <mat-list-item>
+        <mat-icon matListIcon>email</mat-icon>
+        <h4 matLine>Email Address</h4>
+        <p matLine> {{ speaker.email }} </p>
+    </mat-list-item>
+    <mat-list-item>
+        <mat-icon matListIcon>phone_iphone</mat-icon>
+        <h4 matLine>Phone Number</h4>
+        <p matLine> {{ speaker.phone }} </p>
+    </mat-list-item>
+    <mat-list-item>
+        <mat-icon matListIcon>phone</mat-icon>
+        <h4 matLine>Cell Phone</h4>
+        <p matLine> {{ speaker.cell }} </p>
+    </mat-list-item>
+
+    <h3 matSubheader>Additional</h3>
+
+    <mat-list-item>
+        <mat-icon matListIcon>app_registration</mat-icon>
+        <h4 matLine>Registered</h4>
+        <p matLine> {{ speaker.registered.date | date : "short" }} </p>
+    </mat-list-item>
+</mat-list>
