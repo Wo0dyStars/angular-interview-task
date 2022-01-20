@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { Subscription } from 'rxjs';
 import { initialPage, pageSizeOptions } from 'src/app/models/page';
 import { Speaker, SpeakerData } from 'src/app/models/speaker';
 import { DialogService } from 'src/app/services/dialog.service';
+import { PageService } from 'src/app/services/page.service';
 import { SpeakersService } from 'src/app/services/speakers.service';
 import { SpeakerComponent } from 'src/app/shared/dialog/speaker/speaker.component';
 
@@ -19,16 +21,29 @@ export class ListComponent implements OnInit {
   public pageSizeOptions = pageSizeOptions;
   public showFirstLastButtons = true;
   
-  constructor(private speakersService: SpeakersService, private dialogService: DialogService) { }
+  private initialLoad: boolean = false;
+  private $page: Subscription;
+  
+  constructor(private speakersService: SpeakersService, 
+              private dialogService: DialogService,
+              private pageService: PageService ) { }
 
   ngOnInit(): void {
-    this.loadSpeakers();
+    this.$page = this.pageService.getPage().subscribe((page: PageEvent) => {
+      this.page = page;
+
+      if ( !this.initialLoad ) {
+        this.loadSpeakers();
+        this.initialLoad = true;
+      }
+    });
   }
 
   private loadSpeakers(): void {
     this.speakersService.getSpeakers(this.page.length, this.page.pageIndex).subscribe((speakerData: SpeakerData) => {
       this.speakers = this.speakersService.getSpeakersWithMergedName(speakerData.results);
       this.allSpeakers = this.speakers;
+      this.handlePageEvent(this.page);
       console.log(this.speakers)
     })
   }
@@ -55,7 +70,11 @@ export class ListComponent implements OnInit {
   }
 
   public handlePageEvent(event: PageEvent) {
-    this.page = event;
+    this.pageService.setPage(event);
     this.resetSearch();
+  }
+
+  ngOnDestroy(): void {
+    if ( this.$page ) this.$page.unsubscribe();
   }
 }

@@ -9,6 +9,10 @@ import { MaterialModule } from './shared/material/material.module';
 import { FormsModule } from '@angular/forms';
 import { SpeakerComponent } from './shared/dialog/speaker/speaker.component';
 import { ItemComponent } from './components/speakers/list/item/item.component';
+import { StoreModule } from "@ngrx/store";
+import { reducers, metaReducers } from "./store/reducers/index";
+import { CommonModule } from '@angular/common';
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
 @NgModule({
   declarations: [
@@ -22,9 +26,14 @@ import { ItemComponent } from './components/speakers/list/item/item.component';
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    CommonModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: false })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
