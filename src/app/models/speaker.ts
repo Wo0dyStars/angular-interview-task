@@ -63,18 +63,18 @@ export interface Registered {
 }
 
 export interface Speaker {
-    cell: string;
-    dob: Dob;
-    email: string;
-    gender: string;
-    id: Id;
-    location: Location;
-    login: Login;
-    name: Name;
-    nat: string;
-    phone: string;
-    picture: Picture;
-    registered: Registered;
+    cell?: string;
+    dob?: Dob;
+    email?: string;
+    gender?: string;
+    id?: Id;
+    location?: Location;
+    login?: Login;
+    name?: Name;
+    nat?: string;
+    phone?: string;
+    picture?: Picture;
+    registered?: Registered;
     mergedName?: string;
 }
 
