@@ -7,6 +7,16 @@
     </button>
 </mat-form-field>
 
+<mat-paginator
+    (page)="handlePageEvent($event)"
+    [length]="page.length"
+    [pageSize]="page.pageSize"
+    [showFirstLastButtons]="showFirstLastButtons"
+    [pageSizeOptions]="pageSizeOptions"
+    [pageIndex]="page.pageIndex"
+    aria-label="Select page">
+</mat-paginator>
+
 <div class="speakers">
     <mat-card *ngFor="let speaker of speakers" class="speakers__speaker">
         <mat-card-header>

@@ -10,8 +10,8 @@ export class SpeakersService {
 
   constructor(private http: DataService) { }
 
-  public getSpeakers(): Observable<any> {
-    return this.http.get("?results=20&page=1");
+  public getSpeakers(length: number, page: number): Observable<any> {
+    return this.http.get(`?results=${length}&page=${page}`);
   }
 
   public getSpeakersWithMergedName(speakers: Speaker[]): Speaker[] {
