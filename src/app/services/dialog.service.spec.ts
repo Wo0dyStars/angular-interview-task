@@ -9,8 +9,4 @@ describe('DialogService', () => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(DialogService);
   });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
 });
