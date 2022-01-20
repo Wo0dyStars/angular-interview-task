@@ -13,12 +13,14 @@ import { StoreModule } from "@ngrx/store";
 import { reducers, metaReducers } from "./store/reducers/index";
 import { CommonModule } from '@angular/common';
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpeakerComponent,
-    ItemComponent
+    ItemComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
